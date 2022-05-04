@@ -13,6 +13,7 @@ export const Crud = () => {
     const [dob, setDob] = useState('')
     const [acctNum, setAcctNum] = useState('')
     const [data, setData] = useState()
+    const [searchValue, setSearchValue] = useState('')
 
     useEffect(() => {
         let temp = JSON.parse(tempSession)
@@ -32,6 +33,7 @@ export const Crud = () => {
             dob,
             acctNum
         })
+        console.log('tempData', tempData)
         sessionStorage.setItem('mockData', JSON.stringify(tempData))
     }
 
@@ -40,7 +42,21 @@ export const Crud = () => {
         tempData.splice(index,1)
         sessionStorage.setItem('mockData', JSON.stringify(tempData))
     }
-    
+
+    // const handleSearch = (e) => {
+    //     console.log('searchValue', e.target.value)
+    //     const keys = [
+    //         'firstName',
+    //         'middleName',
+    //         'lastName',
+    //         'gender',
+    //         'dob',
+    //         'acctNum'
+    //     ]
+
+    //     const tempData = data.filter((d,index) => {})
+    // }
+
     return <Grid xs={12} className="container">
         <Box component={'div'}>
             <form onSubmit={(e) => {handleSubmit(e)}}>
@@ -79,7 +95,7 @@ export const Crud = () => {
                         <Button type="submit" required className='button'>Submit</Button>
                     </Grid>
                     {/* <Grid style={{ margin: '10px 0'}}>
-                        <TextField placeholder='Search in Table'></TextField>
+                        <TextField placeholder='Search in Table' onChange={(e) => {handleSearch(e)}} value={searchValue}></TextField>
                     </Grid> */}
                 </form>
                 <DataTable data={data} handleDelete={handleDelete}/>
