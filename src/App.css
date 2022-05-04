@@ -1,10 +1,30 @@
 .App {
   text-align: center;
+  height: 100vh
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.formField {
+  margin: 10px 0
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: #282c34;
+  color: #fff
+}
+
+.container {
+  display: 'flex';
+  height: 100vh
 }
 
 @media (prefers-reduced-motion: no-preference) {
